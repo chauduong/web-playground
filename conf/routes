@@ -1,0 +1,29 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index
+
+# Cluster Message
+GET     /api/messages               controllers.ClusterMessages.all
+
+GET     /ws/messages                controllers.StockMessages.ws
+
+# An example controller showing how to use dependency injection
+GET     /count                      controllers.CountController.count
+
+# An example controller showing how to write asynchronous code
+GET     /message                    controllers.AsyncController.message
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+
+GET     /api/heroes                 controllers.Heroes.all
+POST    /api/heroes                 controllers.Heroes.create
+PUT     /api/heroes/:id             controllers.Heroes.update(id:Int)
+DELETE  /api/heroes/:id             controllers.Heroes.delete(id:Int)
+
+
+# Handle all routes not found. These would include angular routes
+GET     /*anyUrl                    controllers.Application.catchAll(anyUrl)
